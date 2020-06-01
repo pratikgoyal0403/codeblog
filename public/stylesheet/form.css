@@ -1,0 +1,24 @@
+form{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+label{
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+.input-title, .input-body, .input-description{
+    width: 100%;
+    margin: .5rem 0rem;
+    padding: 5px 10px;
+}
+.submit-btn{
+    background-color: #5cb85c;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.submit-btn:hover{
+    background-color: #3d833d;
+}

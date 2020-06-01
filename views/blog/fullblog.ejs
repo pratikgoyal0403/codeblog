@@ -1,0 +1,14 @@
+<%- include('../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheet/main.css">
+<link rel="stylesheet" href="/stylesheet/blog.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <div class="full-post">
+        <h1 class="post-heading"><%= post.title%></h1>
+        <p class="post-author">by <%= post.author%></p>
+        <hr>
+        <p class="blog-content"><%= post.body%></p>
+    </div>
+</body>
+<%- include('../partials/bottom.ejs') %>

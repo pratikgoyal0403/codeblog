@@ -1,0 +1,13 @@
+.full-post{
+    width: 60%;
+    margin: auto;
+    padding-top: 10px;
+}
+.post-heading{
+    width: fit-content;
+    font-size: 4rem;
+}
+.blog-content{
+    font-size: 17px;
+    padding: 5px;
+}

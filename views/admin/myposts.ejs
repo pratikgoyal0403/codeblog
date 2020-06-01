@@ -1,0 +1,26 @@
+<%- include('../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheet/main.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <div class="wrapper">
+        <div class="post-container">
+            <h1 class="secondary-heading">My blogPosts: </h1>
+            <% if(posts.length !== 0){ %>
+            <% posts.map(post=>{ %>
+                <div class="post">
+                        <h1 class="post-heading"><%= post.title %></h1>
+                        <p class="post-description"><%= post.description %></p>
+                        <div class="control-btn">
+                            <a href="/admin/edit-post/<%= post._id%>?edit=true" class="edit-btn btn">edit</a>
+                            <a href="/admin/delete-post/<%= post._id %>" class="delete-btn btn">delete</a>
+                        </div>
+                    </div>
+                <% }); %>
+           <% }else{ %>
+                <h2>add some post to see here....</h2>
+          <% } %>
+    
+        </div>
+</body>
+<%- include('../partials/bottom.ejs') %>

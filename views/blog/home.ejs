@@ -1,0 +1,33 @@
+<%- include('../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheet/main.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+<div class="wrapper">
+    <div class="hero">
+        <h1 class="primary-heading">welcome to codeblog</h1>
+        <p class="hero-text">this is a platform where you will find best programming and coding blogs</p>
+        <a href="/blogs" class="btn blogs-btn">go to blog</a>
+        <a href="/admin/new-post" class="success-btn btn">new article</a>
+    </div>
+    <div class="post-container">
+        <h1 class="secondary-heading">popular blogPosts: </h1>
+        <% if(posts.length !== 0){ %>
+        <% posts.map(post=>{ %>
+            <div class="post">
+                <h1 class="post-heading"><%= post.title %></h1>
+                <p class="post-author">by <%= post.author%></p>
+                <p class="post-description"><%= post.description %></p>
+                <form action="/article/<%= post._id %>" method="GET">
+                    <!-- <input type="hidden" name="postId" value="<%= post.id %>"> -->
+                    <button class="fullpost-btn" type="submit">read more</button>
+                </form>
+            </div>
+            <% }); %>
+       <% }else{ %>
+            <h2>add some post to see here....</h2>
+      <% } %>
+
+    </div>
+</div>
+<%- include('../partials/bottom.ejs') %>

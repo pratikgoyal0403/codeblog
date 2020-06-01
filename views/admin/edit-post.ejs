@@ -1,0 +1,23 @@
+<%- include('../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheet/main.css">
+<link rel="stylesheet" href="/stylesheet/form.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <div class="wrapper">
+        <h1 class="primary-heading">edit post</h1>
+        <form action="/admin/myposts" method="post">
+            <label for="title">Title: </label>
+            <input type="text" name="title" placeholder="Title" class="input-title" autocomplete="off" value="<%= post.title%>">
+            <label for="author">Author: </label>
+            <input type="text" name="author" placeholder="Author" class="input-title" autocomplete="off" value="<%= post.author%>">
+            <label for="description">Description: </label>
+            <input type="text" name="description" placeholder="Description"  autocomplete="off"class="input-description" value="<%= post.description%>">
+            <label for="body">Body: </label>
+            <textarea name="body" class="input-body" placeholder="body" autocomplete="off" rows="5"><%= post.body%></textarea>
+            <input type="hidden" value="<%= post._id %>" name="postId">
+            <input type="submit" value="update post" class="submit-btn btn">
+        </form>
+    </div>
+</body>
+<%- include('../partials/bottom.ejs') %>

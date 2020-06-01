@@ -1,0 +1,15 @@
+<header class="header">
+    <div class="logo">
+        
+    </div>
+    <nav>
+        <ul class="navigation">
+            <li class="<%= path === '/' ? 'active': '' %>"><a href="/">Home</a></li>
+            <li class="<%= path === '/admin/new-post' ? 'active': '' %>"><a href="/admin/new-post">CreatePost</a></li>
+            <li class="<%= path === '/admin' ? 'active': '' %>"><a href="/admin/myposts">admin</a></li>
+        </ul>
+    </nav>
+    <div class="user-info">
+        <p class="greet-text">hello <span><%= username%></span></p>
+    </div>
+</header>

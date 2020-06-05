@@ -1,12 +1,13 @@
 const path = require("path");
 
 const express = require("express");
+const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const homeRoute = require("./routes/blogs");
 const adminRoute = require("./routes/admin");
 const User = require("./model/users");
 
-const mongoConnect = require("./util/database").mongoConnect;
+// const mongoConnect = require("./util/database").mongoConnect;  THIS IS REQUIRED TO CONNECT MONGO ATLAS
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use((req, res, next) => {
   User.findById("5ed42f61701e23f43364e5b1")
     .then((user) => {
-        req.user = new User(user.username, user.email, user.blogs, user._id);
+        req.user = user;
         next();
     })
     .catch((err) => err);
@@ -27,6 +28,11 @@ app.use((req, res, next) => {
 app.use(homeRoute);
 
 app.use("/admin", adminRoute);
-mongoConnect(() => {
-  app.listen(3002);
-});
+
+
+mongoose.connect('mongodb+srv://pratik:pratikgoyal@cluster0-mlvox.mongodb.net/blogs?retryWrites=true&w=majority').then(()=>{
+    console.log('connected to port 3001');
+    app.listen('3001', ()=>{
+        console.log('server ready to go');
+    });
+}).catch(err=>console.log(err));

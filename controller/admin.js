@@ -1,8 +1,9 @@
+
 const Blog = require('../model/blog');
 
 exports.getNewBlogPage = (req, res, next) => {
-    const username = req.user.username;
-    res.render("admin/new-blog", { pageTitle: "create new blog post", path: '/new-post', username:  username});
+    // const username = req.user.username;
+    res.render("admin/new-blog", { pageTitle: "create new blog post", path: '/new-post', username:  'pratik'});
 }
 
 exports.postNewBlog = (req, res, next) => {
@@ -24,7 +25,9 @@ exports.postNewBlog = (req, res, next) => {
 
 exports.getAdminPosts = (req, res, next) => {
     const username = req.user.username;
-    Blog.fetchAllBlogsById(req.user.userId).then(data => {
+    const id = req.user._id;
+    Blog.find({userId: id}).then(data => {
+        console.log(data, req.user);
         res.render('admin/myposts', { path: '/admin', posts: data, pageTitle: 'dashboard', username: username });
     }).catch(err=>console.log(err));
 }

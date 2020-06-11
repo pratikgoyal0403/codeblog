@@ -15,6 +15,7 @@ const User = require("./model/users");
 // const mongoConnect = require("./util/database").mongoConnect;  THIS IS REQUIRED TO CONNECT MONGO ATLAS
 
 const MONGODB_URI = `mongodb+srv://pratik:pratikgoyal@cluster0-mlvox.mongodb.net/blogs`;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -60,7 +61,7 @@ app.use("/admin", adminRoute);
 app.use(authRoute);
 
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
-    app.listen('3001', ()=>{
+    app.listen(PORT, ()=>{
         console.log('connected to port 3001');
     });
 }).catch(err=>console.log(err));

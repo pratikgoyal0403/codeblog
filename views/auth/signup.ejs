@@ -1,0 +1,29 @@
+<%- include('../partials/head.ejs') %>
+<link rel="stylesheet" href="stylesheet/main.css">
+<link rel="stylesheet" href="stylesheet/form.css">
+<script src="scripts/alert.js" defer></script>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main class="wrapper">
+        <% if(msg){ %>
+            <div class="error">
+                <h2>
+                    <%= msg%>        
+               </h2>
+        </div>
+            <% } %>
+        <form action="/signup" method="POST">
+            <label for="username">Username: </label>
+            <input type="text" name="username" placeholder="username" class="input-title" autocomplete="off" required>
+            <label for="email">Email </label>
+            <input type="text" name="email" placeholder="email" class="input-title" autocomplete="off" required>
+            <label for="password">password </label>
+            <input type="password" name="password" placeholder="password" class="input-title" autocomplete="off"required>
+            <label for="password">Confirm password </label>
+            <input type="password" name="confirmpassword" placeholder="confirm Password" class="input-title" autocomplete="off" >
+            <button type="submit" class="submit-btn btn">login</button>
+        </form>
+    </main>
+
+<%- include('../partials/bottom.ejs') %>

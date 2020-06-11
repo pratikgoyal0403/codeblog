@@ -12,8 +12,9 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    blogs: {
-        type: [Schema.Types.ObjectId]
+    password: {
+        type: String,
+        required: true
     }
 })
 

@@ -7,7 +7,7 @@ router.get('/', blogController.getHomePage);
 
 router.get('/blogs', blogController.getBlogsPage)
 
-router.get('/article/:productId', blogController.getFullBlog);
+router.get('/article/:blogId', blogController.getFullBlog);
 
 module.exports = router;
 

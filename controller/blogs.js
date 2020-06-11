@@ -1,16 +1,16 @@
 const Blog = require('../model/blog');
 
 exports.getHomePage = (req, res, next) => {
-    // const username = req.user.username;
+    
     Blog.find().then(blogs => {
-        res.render('blog/home', { pageTitle: 'welcome to codeblog.com', posts: blogs, path: '/', username: 'pratik'});
+        res.render('blog/home', { pageTitle: 'welcome to codeblog.com', posts: blogs, path: '/'});
     }).catch(err=>console.log(err));
 }
 
 exports.getBlogsPage = (req, res, next) => {
-    // const username = req.user.username;
+    
     Blog.find().then(blogs=>{        
-        res.render('blog/blogs', { pageTitle: 'blogs', posts: blogs, path: '/blogs', username: 'pratik' });
+        res.render('blog/blogs', { pageTitle: 'blogs', posts: blogs, path: '/blogs' });
     }).catch(err=>console.log(err));
 }
 
@@ -18,13 +18,13 @@ exports.getBlogsPage = (req, res, next) => {
 
 
 exports.getFullBlog = (req, res, next) => {
-    // const username = req.user.username;
-    const id = req.params.productId
+    
+    const id = req.params.blogId
     Blog.findById(id).then(blog => {
-        res.render('blog/fullBlog', { path: '', pageTitle: blog.title, post: blog, username: 'pratik' });
+        res.render('blog/fullBlog', { path: '', pageTitle: blog.title, post: blog });
     }).catch(err=>console.log(err));
 }
 
 
-//ADMIN CONTROLLERS DOWN 
+
 

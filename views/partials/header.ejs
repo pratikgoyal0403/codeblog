@@ -5,11 +5,22 @@
     <nav>
         <ul class="navigation">
             <li class="<%= path === '/' ? 'active': '' %>"><a href="/">Home</a></li>
+            <li class="<%= path === '/blogs' ? 'active': '' %>"><a href="/blogs">blogs</a></li>
             <li class="<%= path === '/admin/new-post' ? 'active': '' %>"><a href="/admin/new-post">CreatePost</a></li>
+            <% if(isAuthenticated){ %>
             <li class="<%= path === '/admin' ? 'active': '' %>"><a href="/admin/myposts">admin</a></li>
+            <% }%>
         </ul>
     </nav>
-    <div class="user-info">
-        <p class="greet-text">hello <span><%= username %></span></p>
-    </div>
+    <ul class="navigation">
+        <% if(!isAuthenticated){ %>
+            <li class="<%= path === '/login' ? 'active': '' %>"><a href="/login">login</a></li>
+            <li class="<%= path === '/signup' ? 'active': '' %>"><a href="/signup">signup</a></li>
+            <% }else{ %>
+                <li class="<%= path === '/logout' ? 'active': '' %>"><a href="/logout">logout</a></li>
+                <li>
+                    <p class="greet-text">hello <span><%= username %></span></p>
+                </li>
+        <% } %>
+    </ul>
 </header>
